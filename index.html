@@ -1,28 +1,67 @@
 <!DOCTYPE html>
+<!-- Document type: tells the browser this is HTML5 -->
 <html lang="en">
+<!-- lang="en" sets the page language for accessibility and SEO -->
+
 <head>
+    <!-- ========== Page metadata ========== -->
     <meta charset="UTF-8">
+    <!-- Character encoding — supports all letters and symbols -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes layout scale correctly on mobile devices -->
+
     <title>Pricing Plans — HTML version</title>
+    <!-- Text shown in the browser tab -->
+
+    <!-- ========== Fonts & styles ========== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preconnect: speeds up loading Google Fonts -->
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Inter font — weights 400–700 used across the page -->
+
     <link rel="stylesheet" href="styles.css">
+    <!-- Links to our custom stylesheet -->
 </head>
+
 <body>
+    <!-- ========== Dev label (fixed badge) ========== -->
     <p class="page-label"><strong>HTML version</strong> — static markup</p>
+    <!-- Shown at top center — identifies this as the static HTML demo -->
+
+    <!-- ========== Pricing cards row ========== -->
     <div class="cards-container">
+        <!-- Flex row that holds all plan cards side by side -->
+
+        <!-- ----- Card 1: Hobby plan ----- -->
         <div class="card">
+            <!-- Single pricing card — fixed width, warm gray background -->
+
             <div class="card-top">
+                <!-- Upper section: title, price, and feature list -->
+
                 <h3 class="card-title">Hobby</h3>
+                <!-- Plan name — 22px, dark text -->
+
                 <p class="card-price">
                     <span class="card-price-amount">Free</span>
+                    <!-- Price value — no period suffix on free tier -->
                 </p>
+
                 <div class="card-content">
+                    <!-- Wraps the "Includes" label and feature bullets -->
+
                     <p class="includes-text">Includes:</p>
+                    <!-- Section label above the feature list -->
+
                     <ul class="features-list">
+                        <!-- Unstyled list — checkmarks added via CSS -->
+
                         <li>
                             <span class="checkmark">✓</span>
+                            <!-- Checkmark icon before each feature -->
                             No credit card required
                         </li>
                         <li>
@@ -36,18 +75,32 @@
                     </ul>
                 </div>
             </div>
+
             <button class="download-button secondary">Download</button>
+            <!-- CTA — light gray pill button, pinned to card bottom -->
         </div>
+
+        <!-- ----- Card 2: Pro plan ----- -->
         <div class="card">
+
             <div class="card-top">
+
                 <h3 class="card-title">Pro</h3>
+
                 <p class="card-price">
                     <span class="card-price-amount">$20</span>
+                    <!-- Main price figure -->
                     <span class="card-price-period">/mo.</span>
+                    <!-- Billing period — smaller text beside price -->
                 </p>
+
                 <div class="card-content">
+
                     <p class="includes-text">Everything in Hobby, plus:</p>
+                    <!-- Upsell copy — references the tier below -->
+
                     <ul class="features-list">
+
                         <li>
                             <span class="checkmark">✓</span>
                             Extended limits on Agent
@@ -67,7 +120,55 @@
                     </ul>
                 </div>
             </div>
+
             <button class="download-button primary">Get Pro</button>
+            <!-- CTA — dark filled pill button (primary action) -->
+        </div>
+
+
+
+        <!-- ----- Card 3: Enterprise plan ----- -->
+        <!-- Copy this block to add another card — same classes, new content -->
+        <div class="card">
+
+            <div class="card-top">
+
+                <h3 class="card-title">Enterprise</h3>
+
+                <p class="card-price">
+                    <span class="card-price-amount">Custom</span>
+                    <!-- No /mo. suffix — pricing is negotiated -->
+                </p>
+
+                <div class="card-content">
+
+                    <p class="includes-text">Everything in Pro, plus:</p>
+                    <!-- Upsell copy — references the tier below -->
+
+                    <ul class="features-list">
+
+                        <li>
+                            <span class="checkmark">✓</span>
+                            SSO and SAML
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Admin controls and audit logs
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Priority support
+                        </li>
+                        <li>
+                            <span class="checkmark">✓</span>
+                            Custom deployment options
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <button class="download-button secondary">Contact sales</button>
+            <!-- CTA — light gray pill button, same style as Hobby -->
         </div>
     </div>
 </body>
