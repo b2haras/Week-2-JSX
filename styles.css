@@ -1,122 +1,161 @@
+/* ============================================================
+   RESET — normalize spacing across all elements
+   ============================================================ */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0;              /* Remove browser default outer spacing */
+    padding: 0;             /* Remove browser default inner spacing */
+    box-sizing: border-box; /* Width/height include padding and border */
 }
 
+
+/* ============================================================
+   PAGE LAYOUT — full-viewport centered canvas
+   ============================================================ */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Inter first; system fonts as fallback */
+
     background-color: #f7f7f4;
+    /* Page background — warm off-white */
+
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    justify-content: center;  /* Center content horizontally */
+    align-items: center;      /* Center content vertically */
+    min-height: 100vh;          /* At least full screen height */
+    padding: 20px;              /* Breathing room on small screens */
 }
 
+
+/* ============================================================
+   CARDS CONTAINER — horizontal row of plan cards
+   ============================================================ */
 .cards-container {
     display: flex;
-    flex-direction: row;
-    gap: 24px;
-    flex-wrap: nowrap;
+    flex-direction: row;    /* Cards sit side by side */
+    gap: 24px;              /* Space between cards */
+    flex-wrap: nowrap;      /* Keep cards on one row */
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-start; /* Align tops — cards may differ in height */
 }
 
+
+/* ============================================================
+   CARD — single pricing plan panel
+   ============================================================ */
 .card {
     display: flex;
-    flex-direction: column;
-    min-height: 380px;
+    flex-direction: column; /* Stack content top → bottom */
+    min-height: 380px;      /* Consistent card height */
     background-color: #f2f1ed;
-    border-radius: 4px;
-    padding: 16px;
-    width: 320px;
-    flex-shrink: 0;
+    /* Card surface — slightly darker than page bg */
+    border-radius: 4px;     /* Subtle corner rounding */
+    padding: 16px;          /* Inner padding on all sides */
+    width: 320px;           /* Fixed card width */
+    flex-shrink: 0;         /* Don't shrink when space is tight */
 }
 
 .card-top {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Title → price → features stack */
 }
 
+
+/* ============================================================
+   TYPOGRAPHY — plan title & price
+   ============================================================ */
 .card-title {
     font-size: 22px;
     line-height: 28px;
-    font-weight: 400;
-    color: #26251e;
+    font-weight: 400;       /* Regular weight — not bold */
+    color: #26251e;         /* Primary dark text */
     margin-bottom: 8px;
 }
 
 .card-price {
     font-size: 20px;
     color: rgba(38, 37, 30, 0.5);
+    /* Muted dark — 50% opacity */
     display: inline-flex;
-    align-items: baseline;
+    align-items: baseline;  /* Align "$20" and "/mo." on text baseline */
 }
 
 .card-price-amount {
-    font-size: 22px;
+    font-size: 22px;        /* Slightly larger than wrapper */
     font-weight: 400;
     color: rgba(38, 37, 30, 0.5);
 }
 
 .card-price-period {
-    font-size: 14px;
+    font-size: 14px;        /* Smaller suffix text */
     color: rgba(38, 37, 30, 0.5);
 }
 
+
+/* ============================================================
+   FEATURE LIST — "Includes" section inside each card
+   ============================================================ */
 .card-content {
-    margin-bottom: 32px;
+    margin-bottom: 32px;    /* Space above the CTA button */
 }
 
 .includes-text {
     font-size: 16px;
     color: rgba(38, 37, 30, 0.5);
+    /* Muted label — "Includes:" / "Everything in Hobby, plus:" */
     margin: 16px 0px;
 }
 
 .features-list {
-    list-style: none;
+    list-style: none;       /* Hide default bullet dots */
     padding: 0;
 }
 
 .features-list li {
     display: flex;
-    align-items: center;
-    margin-bottom: 8px;
+    align-items: center;    /* Vertically center checkmark + text */
+    margin-bottom: 8px;     /* Gap between list items */
     font-size: 16px;
-    color: #26251e;
+    color: #26251e;         /* Primary body text color */
 }
 
 .checkmark {
     color: #26251e;
     font-size: 14px;
-    margin-right: 10px;
+    margin-right: 10px;     /* Space between ✓ and feature text */
     font-weight: 400;
 }
 
+
+/* ============================================================
+   BUTTONS — pill-shaped CTAs at card bottom
+   ============================================================ */
 .download-button {
-    margin-top: auto;
-    width: fit-content;
+    margin-top: auto;       /* Push button to bottom of flex card */
+    width: fit-content;     /* Button only as wide as its label */
     background-color: #e6e5e0;
+    /* Default/secondary fill — light warm gray */
     border: none;
-    border-radius: 999px;
+    border-radius: 999px;   /* Full pill shape */
     padding: 14px 24px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 500;       /* Medium weight label */
     color: #333;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    /* Smooth hover/active color change */
 }
 
 .download-button:hover {
     background-color: #D8D6CE;
+    /* Slightly darker on hover — secondary style */
 }
 
 .download-button:active {
     background-color: #D8D6CE;
+    /* Same as hover while pressed */
 }
 
+/* Primary variant — dark filled button (Pro plan) */
 .download-button.primary {
     background-color: #111;
     color: #fff;
@@ -130,19 +169,25 @@ body {
     background-color: #333;
 }
 
+
+/* ============================================================
+   DEV LABEL — fixed badge showing "HTML version"
+   ============================================================ */
 .page-label {
-    position: fixed;
+    position: fixed;        /* Stays at top while scrolling */
     top: 16px;
     left: 50%;
     transform: translateX(-50%);
+    /* Horizontally center the badge */
     font-size: 14px;
     color: #666;
     background: #fff;
     padding: 8px 16px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    /* Soft drop shadow for floating effect */
 }
 
 .page-label strong {
-    color: #333;
+    color: #333;            /* "HTML version" — slightly darker emphasis */
 }
